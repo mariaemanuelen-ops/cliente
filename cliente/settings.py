@@ -25,13 +25,15 @@ sys.path.insert(0, APPS_DIR)
 SECRET_KEY = 'django-insecure-w9&ya#2^ukxq5y*_j!nk49zsext-9i&t1k+ozj*_)we5_2%fa3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
+
+LLOWED_HOSTS = ['*'] 
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
+LOGIN_URL ='/login/'
 
 DJANGO_APPS = [
     'django.contrib.admin',
