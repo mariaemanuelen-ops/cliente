@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
@@ -91,11 +91,11 @@ def login_usuario(request):
 
 def novo_usuario(request):
     template_name = 'novo_usuario.html'
-    if request. method == 'post':
+    if request.method == 'POST':
         form = UsuarioForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            f.set_passowd(f.passowrd)
+            f.set_password(f.password)
             f.save()
             return redirect('login_usuario')
         else:
@@ -103,4 +103,9 @@ def novo_usuario(request):
     else:
         form = UsuarioForm()
     context = {'form': form}
-    return render(request, template_name, context)
+    return render(request, template_name, context) 
+
+@login_required
+def sair(request):
+    logout(request)
+    redirect('login_usuario') 

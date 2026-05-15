@@ -4,6 +4,11 @@
     <title>Cadastro de Clientes</title>
     <body>
         <div class="container">
+            <nav class="navbar bg-body-tertiary">
+  <form class="container-fluid justify-content-start">
+    <a href="{% url 'sair' %}" class="btn btn-outline-success me-2" type="button">SAIR</a>
+  </form>
+</nav>
             <form method="post">
             {% csrf_token %}
             <h1>Preencha os dados abaixo</h1>
