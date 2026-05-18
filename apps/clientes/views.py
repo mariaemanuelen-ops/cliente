@@ -87,8 +87,6 @@ def login_usuario(request):
     return render(request, template_name, context)
 
 
-
-
 def novo_usuario(request):
     template_name = 'novo_usuario.html'
     if request.method == 'POST':
@@ -103,9 +101,9 @@ def novo_usuario(request):
     else:
         form = UsuarioForm()
     context = {'form': form}
-    return render(request, template_name, context) 
+    return render(request, template_name, context)
 
 @login_required
 def sair(request):
     logout(request)
-    redirect('login_usuario') 
+    return redirect('login_usuario')
